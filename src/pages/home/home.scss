@@ -1,0 +1,71 @@
+page-home {
+
+.ioncontent{
+    background-color: black;
+}    
+
+#container{
+    height: 95%;
+    width: 100%;
+}
+
+scroll-content {
+    display: flex;
+    flex-direction: column;
+   }
+ 
+ion-grid {
+    padding: 0;
+    height: 100%;
+}
+ 
+ion-row {
+    flex: 1;
+}
+
+#inputCard{
+    height:80%;
+}
+
+#outputCard{
+    height: 20%;
+}
+
+.ion-grid{
+    height: 100%;
+}
+
+.col{
+    padding: 1px;
+}
+
+.digitButton{
+    padding:10px;
+    font-size: 3rem;
+    height: 100%;
+}
+
+.operationButton{
+    padding:10px;
+    font-size: 3rem;
+    background-color: orange;
+    height: 100%;
+}
+
+input[type="text"]{
+    width: 100%;
+    height: 100%;
+    font-size: 60px;
+    text-align: right;
+}
+
+button{
+    height: 100%;
+    width: 100%;
+}
+
+ion-grid{
+    height: 100% !important;
+}
+
+}

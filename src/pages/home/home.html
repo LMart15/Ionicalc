@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      IoniCalc
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="ioncontent">
+
+<div id="container">
+<ion-card id="outputCard">
+  <input type="text" [(ngModel)]="outPut" readonly/>
+</ion-card>
+
+  <ion-card id="inputCard">
+      <ion-grid>
+        <ion-row>
+          <ion-col width-25 class="ioncol">
+            <button ion-button (click)="onClearClick()" class="digitButton">C</button>
+          </ion-col>
+          <ion-col width-25 class="ioncol">
+            <button ion-button (click)="onSignClick()" class="digitButton">x/-</button>
+          </ion-col>
+          <ion-col width-25 class="ioncol">
+            <button ion-button (click)="onPercentClick('%')" class="digitButton">%</button>
+          </ion-col>
+          <ion-col width-25 class="ioncol">
+            <button ion-button (click)="onOperationClick('/')" class="operationButton">/</button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col width-25>
+            <button ion-button (click)="onDigitClick('7')" class="digitButton">7</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onDigitClick('8')" class="digitButton">8</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onDigitClick('9')" class="digitButton">9</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onOperationClick('x')" class="operationButton">x</button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col width-25>
+            <button ion-button (click)="onDigitClick('4')" class="digitButton">4</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onDigitClick('5')" class="digitButton">5</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onDigitClick('6')" class="digitButton">6</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onOperationClick('-')" class="operationButton">-</button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col width-25>
+            <button ion-button (click)="onDigitClick('1')" class="digitButton">1</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onDigitClick('2')" class="digitButton">2</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onDigitClick('3')" class="digitButton">3</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onOperationClick('+')" class="operationButton">+</button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col width-50>
+            <button ion-button (click)="onDigitClick('0')" class="digitButton">0</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onDecimalClick()" class="digitButton">.</button>
+          </ion-col>
+          <ion-col width-25>
+            <button ion-button (click)="onEqualsClick('=')" class="operationButton">=</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-card>
+</div>
+</ion-content>
+
