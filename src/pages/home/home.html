@@ -8,12 +8,16 @@
 
 <ion-content padding class="ioncontent">
 
-<div id="container">
-<ion-card id="outputCard">
-  <input type="text" [(ngModel)]="outPut" readonly/>
-</ion-card>
+  <ion-fab top right edge id="customFab">
+    <button ion-fab mini><ion-icon name="clipboard"></ion-icon></button>
+  </ion-fab>
 
-  <ion-card id="inputCard">
+  <div id="container">
+    <ion-card id="outputCard">
+      <input type="text" [(ngModel)]="outPut" readonly/>
+    </ion-card>
+
+    <ion-card id="inputCard">
       <ion-grid>
         <ion-row>
           <ion-col width-25 class="ioncol">
@@ -83,7 +87,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-  </ion-card>
-</div>
+    </ion-card>
+  </div>
 </ion-content>
 
