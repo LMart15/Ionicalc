@@ -24,5 +24,9 @@ export class NotesPage {
     this.navCtrl.push(NotesDetailPage);
   };
 
+  onTrashClick(note: Note){
+    this.noteService.removeNote(note.id);
+  };
+
 }
 

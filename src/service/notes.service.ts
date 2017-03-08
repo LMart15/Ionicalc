@@ -2,22 +2,17 @@ import { Note } from "../model/notes.model";
 
 export class NoteService {
 
-  static nextId = 4;
+  static nextId = 3;
 
   notes: Note[] = [{
       id: 1,
-      title: "Rent",
-      note: "Lunch"
+      title: "Rent + Hydro",
+      note: "1275"
     },
     {
       id: 2,  
-      title: "Lunch Money",
-      note: "Lunch"
-    },
-    {
-      id: 3, 
-      title: "Lunch Money",
-      note: "Lunch"
+      title: "Lunch Money per day",
+      note: "5.75"
     }
   ];
 
@@ -26,9 +21,14 @@ export class NoteService {
       return Object.assign({}, note);
   }
 
-   updateNote(note:Note){
+  updateNote(note:Note){
       const index = this.notes.findIndex(it => it.id === note.id);
       this.notes[index] = note;
+  }
+
+  removeNote(noteId:Number){
+      const index = this.notes.findIndex(it => it.id === noteId);
+      this.notes.splice(index, 1);
   }
 
   addNote(note:Note){
