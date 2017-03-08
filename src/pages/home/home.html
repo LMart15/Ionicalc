@@ -16,7 +16,7 @@
 <ion-content padding class="ioncontent">
 
   <ion-fab top right edge id="customFab">
-    <button ion-fab mini><ion-icon name="create"></ion-icon></button>
+    <button ion-fab mini (click)="onAddToNote()"><ion-icon name="create"></ion-icon></button>
   </ion-fab>
 
   <div id="container">
@@ -31,7 +31,7 @@
             <button ion-button (click)="onClearClick()" class="digitButton">C</button>
           </ion-col>
           <ion-col width-25 class="ioncol">
-            <button ion-button (click)="onSignClick()" class="digitButton">x/-</button>
+            <button ion-button (click)="onSignClick()" class="digitButton">+/-</button>
           </ion-col>
           <ion-col width-25 class="ioncol">
             <button ion-button (click)="onPercentClick('%')" class="digitButton">%</button>

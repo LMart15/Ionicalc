@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NotesPage } from "../notes/notes";
+import { NotesDetailPage } from "../notes-detail/notes-detail";
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -90,5 +91,9 @@ switch(this.ops)
   onGoNotes(){
     this.navCtrl.push(NotesPage);
   }
+
+  onAddToNote(){
+    this.navCtrl.push(NotesDetailPage, {noteAmount: this.outPut});
+  };
 
 }

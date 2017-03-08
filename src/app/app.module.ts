@@ -3,7 +3,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { NoteService } from '../service/notes.service';
 import { HomePage } from '../pages/home/home';
-import { NotesPage } from '../pages/notes/notes'; 
+import { NotesPage } from '../pages/notes/notes';
+import { NotesDetailPage } from '../pages/notes-detail/notes-detail'; 
 
 @NgModule({
   imports: [
@@ -12,12 +13,14 @@ import { NotesPage } from '../pages/notes/notes';
   declarations: [
     MyApp,
     HomePage,
-    NotesPage
+    NotesPage,
+    NotesDetailPage
   ],
   entryComponents: [
     MyApp,
     HomePage,
-    NotesPage
+    NotesPage,
+    NotesDetailPage
   ],
   providers: [
     NoteService,

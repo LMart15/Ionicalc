@@ -8,14 +8,14 @@
 <ion-content padding class="ioncontent">
 
 <ion-card  *ngFor="let note of notes"> 
-<button ion-item>
+<button ion-item (click)="onNoteClick(note)">
         <h2>{{note.title}}</h2>
         <ion-note>{{note.note}}</ion-note>
     </button>
 </ion-card>
 
   <ion-fab right bottom>
-    <button ion-fab color="primary">
+    <button ion-fab color="primary" (click)="onAddClick()">
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>

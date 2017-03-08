@@ -24,7 +24,7 @@ export class NoteService {
       return Object.assign({}, note);
   }
 
-   updateExpense(note:Note){
+   updateNote(note:Note){
       const index = this.notes.findIndex(it => it.id === note.id);
       this.notes[index] = note;
   }
