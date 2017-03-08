@@ -3,13 +3,20 @@
     <ion-title>
       IoniCalc
     </ion-title>
+    <ion-buttons start>
+      <button (click)="onGoNotes()" ion-button item-right icon-left>
+        Notes
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="ioncontent">
 
   <ion-fab top right edge id="customFab">
-    <button ion-fab mini><ion-icon name="clipboard"></ion-icon></button>
+    <button ion-fab mini><ion-icon name="create"></ion-icon></button>
   </ion-fab>
 
   <div id="container">

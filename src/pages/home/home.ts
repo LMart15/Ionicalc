@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NotesPage } from "../notes/notes";
 
 import { NavController } from 'ionic-angular';
 
@@ -85,6 +86,10 @@ switch(this.ops)
   {
     this.outPut = 0;
     this.containsDigit = false;
+  }
+
+  onGoNotes(){
+    this.navCtrl.push(NotesPage);
   }
 
 
