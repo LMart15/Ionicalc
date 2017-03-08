@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { NoteService } from '../service/notes.service';
 import { HomePage } from '../pages/home/home';
 import { NotesPage } from '../pages/notes/notes'; 
 
@@ -18,7 +19,9 @@ import { NotesPage } from '../pages/notes/notes';
     HomePage,
     NotesPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}],
+  providers: [
+    NoteService,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}],
   bootstrap: [IonicApp]
 })
 export class AppModule {}
