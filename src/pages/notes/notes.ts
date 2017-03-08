@@ -16,7 +16,7 @@ export class NotesPage {
     this.notes = noteService.notes;
   } 
 
-    onNoteClick(note: Note){
+  onNoteClick(note: Note){
     this.navCtrl.push(NotesDetailPage, {noteId: note.id});
   };
 

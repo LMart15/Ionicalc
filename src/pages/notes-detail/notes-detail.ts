@@ -13,15 +13,33 @@ export class NotesDetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private noteService: NoteService) {
 
-      const noteId = navParams.get('noteId');
-      this.note = noteService.getNote(noteId);
-
-      const noteAmount = navParams.get('noteAmount');
-      this.note.note = noteAmount;
-  }
-
+    const noteId = navParams.get('noteId');
+    const noteAmount = navParams.get('noteAmount');
+    
+      if(noteId){
+        this.note = noteService.getNote(noteId);
+      }
+      else if(noteAmount){
+        this.note = {
+          title: "",
+          note: noteAmount
+        };
+      }
+      else{
+      this.note = {
+          title: "",
+          note: ""
+        };   
+      }
+    }
+  
   onSave() {
+    if(this.note.id){
     this.noteService.updateNote(this.note);
+  }
+  else{
+    this.noteService.addNote(this.note);
+  }
     this.navCtrl.pop();
   }
 

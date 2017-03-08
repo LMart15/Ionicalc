@@ -2,6 +2,8 @@ import { Note } from "../model/notes.model";
 
 export class NoteService {
 
+  static nextId = 4;
+
   notes: Note[] = [{
       id: 1,
       title: "Rent",
@@ -27,6 +29,11 @@ export class NoteService {
    updateNote(note:Note){
       const index = this.notes.findIndex(it => it.id === note.id);
       this.notes[index] = note;
+  }
+
+  addNote(note:Note){
+      note.id = NoteService.nextId++;
+      this.notes.push(note);
   }
 
 }
