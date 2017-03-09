@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{note.title || "New Note"}}</ion-title>
+    <ion-title>{{note.title || 'NEW_NOTE' | translate}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="onSave()" [disabled]="!f.valid">
           <ion-icon name="checkmark-circle-outline"></ion-icon>
@@ -13,11 +13,11 @@
   <form #f="ngForm">
   <ion-list>
      <ion-item>
-      <ion-label stacked>Title</ion-label>
+      <ion-label stacked>{{'TITLE' | translate}}</ion-label>
       <ion-input type="text" [(ngModel)]="note.title" name="title" required></ion-input>
     </ion-item>
     <ion-item item-text-wrap> 
-      <ion-label stacked>Note</ion-label>
+      <ion-label stacked>{{'NOTE' | translate}}</ion-label>
       <ion-textarea [(ngModel)]="note.note" name="note" required></ion-textarea>
     </ion-item>
   </ion-list>

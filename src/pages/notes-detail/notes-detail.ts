@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { TranslateService } from 'ng2-translate';
+import { LanguageService } from "../../service/language.service";
 import { Note } from "../../model/notes.model";
 import { NoteService } from "../../service/notes.service";
 
@@ -11,7 +13,9 @@ export class NotesDetailPage {
 
   note: Note;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private noteService: NoteService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private translateService: TranslateService, private languageService: LanguageService, private noteService: NoteService) {
+
+    translateService.use(languageService.lang);
 
     const noteId = navParams.get('noteId');
     const noteAmount = navParams.get('noteAmount');

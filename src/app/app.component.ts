@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-
 import { HomePage } from '../pages/home/home';
 
 
@@ -20,9 +19,11 @@ export class MyApp {
     });
   }
   hideSplashScreen() {
-if (Splashscreen) {
-setTimeout(() => {
-Splashscreen.hide();
-}, 100);
-}}
+    if (Splashscreen) {
+      setTimeout(() => {
+        Splashscreen.hide();
+      }, 100);
+    }
+  }
 }
+

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
+import { LanguageService } from "../../service/language.service";
 import { NotesPage } from "../notes/notes";
 import { NotesDetailPage } from "../notes-detail/notes-detail";
 import { NavController } from 'ionic-angular';
@@ -15,10 +17,19 @@ export class HomePage {
   ops;
   result;
   containsDigit;
+  lang;
 
-  constructor(private navCtrl: NavController) {
+  constructor(private navCtrl: NavController, private translateService: TranslateService, private languageService: LanguageService) {
+    this.lang = languageService.lang;
+    translateService.use(languageService.lang);
+    
     this.outPut = 0;
     this.containsDigit = false;
+  }
+
+  onLangSwitch(lang){
+    this.lang = this.languageService.toggleLang(lang);
+    this.translateService.use(this.lang);
   }
 
   onDigitClick(k)
