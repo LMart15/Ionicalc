@@ -1,22 +1,11 @@
+import uuidV4 from "uuid/v4"
 import { Note } from "../model/notes.model";
 
 export class NoteService {
 
-  static nextId = 3;
+  notes:Note[] = this.loadNotes();
 
-  notes: Note[] = [{
-      id: 1,
-      title: "Rent + Hydro",
-      note: "1275"
-    },
-    {
-      id: 2,  
-      title: "Lunch Money per day",
-      note: "5.75"
-    }
-  ];
-
-  getNote(noteId:number){
+  getNote(noteId:string){
       const note = this.notes.find(it => it.id === noteId);
       return Object.assign({}, note);
   }
@@ -24,16 +13,32 @@ export class NoteService {
   updateNote(note:Note){
       const index = this.notes.findIndex(it => it.id === note.id);
       this.notes[index] = note;
+      this.setNotes();
   }
 
-  removeNote(noteId:Number){
+  removeNote(noteId:string){
       const index = this.notes.findIndex(it => it.id === noteId);
       this.notes.splice(index, 1);
+      this.setNotes();
   }
 
   addNote(note:Note){
-      note.id = NoteService.nextId++;
+      note.id = uuidV4();
       this.notes.push(note);
+      this.setNotes();
+  }
+
+  private loadNotes(): Note[]{
+      const notes = localStorage.getItem("notes");
+      if(notes){
+        return JSON.parse(notes);
+      }else{
+        return [];
+      }
+  }
+
+  private setNotes(){
+    localStorage.setItem("notes", JSON.stringify(this.notes));
   }
 
 }
