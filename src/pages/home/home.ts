@@ -18,6 +18,7 @@ export class HomePage {
   result;
   containsDigit;
   lang;
+  calculationHistory;
 
   constructor(private navCtrl: NavController, private translateService: TranslateService, private languageService: LanguageService) {
     this.lang = languageService.lang;
@@ -91,6 +92,9 @@ switch(this.ops)
   }
 
   this.outPut = this.result;
+
+  this.calculationHistory = this.param1 + " " + this.ops + " " + this.param2 + " = " + this.result;
+
     }
 
   onClearClick()
@@ -104,7 +108,7 @@ switch(this.ops)
   }
 
   onAddToNote(){
-    this.navCtrl.push(NotesDetailPage, {noteAmount: this.outPut});
+    this.navCtrl.push(NotesDetailPage, {noteAmount: this.calculationHistory});
   };
 
 }
