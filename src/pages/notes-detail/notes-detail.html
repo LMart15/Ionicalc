@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-title>{{note.title || 'NEW_NOTE' | translate}}</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="onSave()" [disabled]="!f.valid">
+      <button ion-button icon-only (click)="onSave(note)" [disabled]="!f.valid">
           <ion-icon name="checkmark-circle-outline"></ion-icon>
       </button>
     </ion-buttons>

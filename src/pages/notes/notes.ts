@@ -5,6 +5,7 @@ import { LanguageService } from "../../service/language.service";
 import { NotesDetailPage } from "../notes-detail/notes-detail";
 import { Note } from "../../model/notes.model";
 import { NoteService } from "../../service/notes.service";
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 @Component({
   selector: 'page-notes',
@@ -12,25 +13,29 @@ import { NoteService } from "../../service/notes.service";
 })
 export class NotesPage {
 
-  notes: Note[];
+  //notes: Note[];
+  notes: FirebaseListObservable<any>;
 
-  constructor(private navCtrl: NavController, private navParams: NavParams, private translateService: TranslateService, private languageService: LanguageService, private noteService: NoteService) {
+  constructor(private navCtrl: NavController, private navParams: NavParams, private translateService: TranslateService, private languageService: LanguageService, af: AngularFire) {
     translateService.use(languageService.lang);
     
-    this.notes = noteService.notes;
+    //this.notes = noteService.notes;
+    this.notes = af.database.list('/notes');
+    console.log(this.notes);
   } 
 
-  onNoteClick(note: Note){
-    this.navCtrl.push(NotesDetailPage, {noteId: note.id});
+  onNoteClick(noteId: String){
+    this.navCtrl.push(NotesDetailPage, {noteId: noteId});
   };
 
   onAddClick(note: Note){
     this.navCtrl.push(NotesDetailPage);
   };
 
-  onTrashClick(note: Note){
-    this.noteService.removeNote(note.id);
+  onTrashClick(key: string){
+    this.notes.remove(key);
   };
 
 }
+
 

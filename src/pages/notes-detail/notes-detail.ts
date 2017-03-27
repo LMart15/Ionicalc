@@ -4,6 +4,7 @@ import { TranslateService } from 'ng2-translate';
 import { LanguageService } from "../../service/language.service";
 import { Note } from "../../model/notes.model";
 import { NoteService } from "../../service/notes.service";
+import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
 
 @Component({
   selector: 'page-notes-detail',
@@ -12,16 +13,27 @@ import { NoteService } from "../../service/notes.service";
 export class NotesDetailPage {
 
   note: Note;
+  noteObservable: FirebaseObjectObservable<any>;
+  notes: FirebaseListObservable<any>;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, private translateService: TranslateService, private languageService: LanguageService, af: AngularFire) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private translateService: TranslateService, private languageService: LanguageService, private noteService: NoteService) {
-
+    this.notes = af.database.list('/notes');
+    
     translateService.use(languageService.lang);
 
     const noteId = navParams.get('noteId');
     const noteAmount = navParams.get('noteAmount');
     
       if(noteId){
-        this.note = noteService.getNote(noteId);
+        this.noteObservable = af.database.object('/notes/' + noteId, { preserveSnapshot: true });
+          this.noteObservable.subscribe(snapshot => {
+          this.note = {
+              id: snapshot.key,
+              title: snapshot.val().title,
+              note: snapshot.val().note
+            }; 
+          });
       }
       else if(noteAmount){
         this.note = {
@@ -37,12 +49,12 @@ export class NotesDetailPage {
       }
     }
   
-  onSave() {
-    if(this.note.id){
-    this.noteService.updateNote(this.note);
+  onSave(note) {
+    if(note.id){
+    this.noteObservable.update({ title: note.title, note: note.note});
   }
   else{
-    this.noteService.addNote(this.note);
+    this.notes.push(this.note);
   }
     this.navCtrl.pop();
   }
