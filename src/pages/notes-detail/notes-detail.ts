@@ -3,7 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate';
 import { LanguageService } from "../../service/language.service";
 import { Note } from "../../model/notes.model";
-import { NoteService } from "../../service/notes.service";
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
 
 @Component({
