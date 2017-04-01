@@ -30,20 +30,23 @@ export class NotesDetailPage {
           this.note = {
               id: snapshot.key,
               title: snapshot.val().title,
-              note: snapshot.val().note
+              note: snapshot.val().note,
+              date: snapshot.val().date
             }; 
           });
       }
       else if(noteAmount){
         this.note = {
           title: "",
-          note: noteAmount
+          note: noteAmount,
+          date: ""
         };
       }
       else{
       this.note = {
           title: "",
-          note: ""
+          note: "",
+          date: ""
         };   
       }
     }

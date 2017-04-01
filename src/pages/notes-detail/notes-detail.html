@@ -20,6 +20,10 @@
       <ion-label stacked>{{'NOTE' | translate}}</ion-label>
       <ion-textarea [(ngModel)]="note.note" name="note" required></ion-textarea>
     </ion-item>
+    <ion-item>
+      <ion-label stacked>Date</ion-label>
+      <ion-datetime type="text" [(ngModel)]="note.date" name="date"></ion-datetime>
+    </ion-item>
   </ion-list>
   </form>
 </ion-content>
