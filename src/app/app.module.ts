@@ -8,6 +8,7 @@ import { NoteService } from '../service/notes.service';
 import { HomePage } from '../pages/home/home';
 import { NotesPage } from '../pages/notes/notes';
 import { NotesDetailPage } from '../pages/notes-detail/notes-detail';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { AngularFireModule } from 'angularfire2'; 
 
@@ -49,6 +50,7 @@ export function createTranslateLoader(http: Http) {
   providers: [
     LanguageService,
     NoteService,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler}],
   bootstrap: [IonicApp]
 })
