@@ -13,12 +13,16 @@
   <form #f="ngForm">
   <ion-list>
      <ion-item>
-      <ion-label stacked>{{'TITLE' | translate}}</ion-label>
+      <ion-label stacked>{{'TITLE' | translate}} *</ion-label>
       <ion-input type="text" [(ngModel)]="note.title" name="title" required></ion-input>
     </ion-item>
     <ion-item item-text-wrap> 
-      <ion-label stacked>{{'NOTE' | translate}}</ion-label>
+      <ion-label stacked>{{'NOTE' | translate}} *</ion-label>
       <ion-textarea [(ngModel)]="note.note" name="note" required></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Email (share)</ion-label>
+      <ion-input type="email" [(ngModel)]="note.email" name="email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label stacked>Date</ion-label>

@@ -48,7 +48,7 @@ export class NotesPage {
       });
 
 // Share via email
-this.socialSharing.shareViaEmail(note.note, note.title, ['lawrenceqmartin@gmail.com']).then(() => {
+this.socialSharing.shareViaEmail(note.note, note.title, ['lawrenceqmartin@gmail.com', note.email]).then(() => {
   // Success!
 }).catch(() => {
   // Error!

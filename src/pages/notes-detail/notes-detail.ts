@@ -31,7 +31,8 @@ export class NotesDetailPage {
               id: snapshot.key,
               title: snapshot.val().title,
               note: snapshot.val().note,
-              date: snapshot.val().date
+              date: snapshot.val().date,
+              email: snapshot.val().email,
             }; 
           });
       }
@@ -39,14 +40,16 @@ export class NotesDetailPage {
         this.note = {
           title: "",
           note: noteAmount,
-          date: ""
+          date: "",
+          email: ""
         };
       }
       else{
       this.note = {
           title: "",
           note: "",
-          date: ""
+          date: "",
+          email: ""
         };   
       }
     }

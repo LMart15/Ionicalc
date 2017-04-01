@@ -3,4 +3,5 @@ export interface Note{
       date: string;
       title: string;
       note: string;
+      email: string;
 }
